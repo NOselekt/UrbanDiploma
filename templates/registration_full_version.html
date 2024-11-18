@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../static/registration_styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&family=Nunito:wght@400&display=swap" rel="stylesheet">
+</head>
+<body>
+   <h1>Регистрация</h1>
+   <form action="/applicant/registered" method="post">
+
+       <label for="snils">СНИЛС:</label>
+       <input type="text" id="snils" name="snils" minlength="11" maxlength="11" required><br><br>
+
+       <label for="score">Баллы ЕГЭ:</label>
+       <input type="text" id="score" name="score" minlength="3" maxlength="3" required><br><br>
+
+       <label class="custom-checkbox">
+           <input type="checkbox" id="olimp" name="olimp">
+           Олимпиада, позволяющая поступить БВИ
+           <span class="checkmark"></span>
+        </label>
+
+       <label for="password">Пароль:</label>
+       <input type="password" id="password" name="password" required><br><br>
+
+       <label for="first_course">Выберите направление(приоритет №1):</label>
+       <select id="first_course" name="courses">
+           <option value="">Нет</option>
+           {%for name in courses%}
+           <option value="{{name}}">{{name}}</option>
+           {%endfor%}
+       </select><br><br>
+
+       <label for="second_course">Выберите направление(приоритет №2):</label>
+       <select id="second_course" name="courses">
+           <option value="">Нет</option>
+           {%for name in courses%}
+           <option value="{{name}}">{{name}}</option>
+           {%endfor%}
+       </select><br><br>
+
+       <label for="third_course">Выберите направление(приоритет №3):</label>
+       <select id="third_course" name="courses">
+           <option value="">Нет</option>
+           {%for name in courses%}
+           <option value="{{name}}">{{name}}</option>
+           {%endfor%}
+       </select><br><br>
+
+       <label for="fourth_course">Выберите направление(приоритет №4):</label>
+       <select id="fourth_course" name="courses">
+           <option value="">Нет</option>
+           {%for name in courses%}
+           <option value="{{name}}">{{name}}</option>
+           {%endfor%}
+       </select><br><br>
+
+       <label for="fifth_course">Выберите направление(приоритет №5):</label>
+       <select id="fifth_course" name="courses">
+           <option value="">Нет</option>
+           {%for name in courses%}
+           <option value="{{name}}">{{name}}</option>
+           {%endfor%}
+       </select><br><br>
+
+       <input type="submit" value="Зарегистрироваться">
+   </form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/result_styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&
+    family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+    <title>Результаты</title>
+
+</head>
+<body>
+
+<h1>Результаты отбора по направлению <p>"{{course.name}}"</p></h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Место</th>
+            <th>СНИЛС</th>
+            <th>Баллы ЕГЭ</th>
+            <th>Олимпиада</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in range(course.max_students_number) %}
+        <tr>
+            {%if result is not none%}
+            <td>{{i+1}}</td>
+            <td>{{result[i].applicant_snils}}</td>
+            <td>{{result[i].applicant_score}}</td>
+            <td>{%if result[i].applicant_olimp%} Есть
+                {%else%} Нет
+                {%endif%}</td>
+            {% else %}
+            <td>{{i+1}}</td>
+            <td>{{None}}</td>
+            <td>{{None}}</td>
+            <td>{{None}}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
